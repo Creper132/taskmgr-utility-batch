@@ -6,11 +6,13 @@ echo (1) Turn on task manager
 echo (2) Turn off task manager
 echo (3) Kill task manager
 echo (4) Start Task Manager
+echo (5) Quit
 set /p select=Select: 
 if %select%==1 goto 1
 if %select%==2 goto 2
 if %select%==3 goto 3
 if %select%==4 goto 4
+if %select%==5 goto 5
 :1
 reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableTaskMgr /t REG_DWORD /d 0 /f
 goto main
@@ -23,3 +25,5 @@ goto main
 :4
 start taskmgr.exe
 goto main
+:5
+exit
